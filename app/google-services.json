@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1039427877838",
+    "firebase_url": "https://pach4u-cf122-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "pach4u-cf122",
+    "storage_bucket": "pach4u-cf122.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039427877838:android:d35f0e021630b8d060899f",
+        "android_client_info": {
+          "package_name": "com.example.pach4u"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039427877838-0nqep98f5pp5pj8s1gmtqos00vbqvi0k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pach4u",
+            "certificate_hash": "2b2a211ba1e4fd5e7cafb78f5658e9d1e9001ca9"
+          }
+        },
+        {
+          "client_id": "1039427877838-6o3rk9mml5ron2cb8u0qm4bpo1le5em5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeO1O9Gz0icRw3zvykVMB16BjRnDYAKq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039427877838-6o3rk9mml5ron2cb8u0qm4bpo1le5em5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
