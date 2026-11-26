@@ -31,6 +31,7 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import androidx.compose.runtime.DisposableEffect
+import kotlin.time.Duration.Companion.milliseconds
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +60,7 @@ class MainActivity : ComponentActivity() {
                             val defaultName = auth.currentUser?.displayName
                                 ?: auth.currentUser?.email?.substringBefore("@")
                                 ?: "Jugador"
-                            kotlinx.coroutines.withTimeoutOrNull(3000L) {
+                            kotlinx.coroutines.withTimeoutOrNull(3000L.milliseconds) {
                                 runCatching {
                                     repository.syncOrCreateUser(uid, defaultName)
                                 }
@@ -74,8 +75,7 @@ class MainActivity : ComponentActivity() {
                     if (uid == null) {
                         onDispose { }
                     } else {
-                        val connectivityManager =
-                            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+                        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
                         val networkCallback = object : ConnectivityManager.NetworkCallback() {
                             override fun onAvailable(network: Network) {

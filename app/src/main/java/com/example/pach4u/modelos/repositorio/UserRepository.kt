@@ -5,6 +5,7 @@ import com.example.pach4u.modelos.local.UserDao
 import com.example.pach4u.modelos.remoto.FirebaseUserService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withTimeoutOrNull
+import kotlin.time.Duration.Companion.milliseconds
 
 class UserRepository(
     private val userDao: UserDao,
@@ -23,7 +24,7 @@ class UserRepository(
             return
         }
 
-        val remoteUser = withTimeoutOrNull(3000L) {
+        val remoteUser = withTimeoutOrNull(3000L.milliseconds) {
             runCatching { firebaseService.getUser(uid) }.getOrNull()
         }
 
@@ -72,7 +73,7 @@ class UserRepository(
     }
 
     private suspend fun uploadToFirebase(user: User): Boolean {
-        return withTimeoutOrNull(4000L) {
+        return withTimeoutOrNull(4000L.milliseconds) {
             runCatching {
                 firebaseService.saveUser(user.copy(pendingSync = false))
                 true
