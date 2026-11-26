@@ -6,7 +6,7 @@ import androidx.room3.Room
 import androidx.room3.RoomDatabase
 import com.example.pach4u.modelos.User
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
+@Database(entities = [User::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
@@ -18,10 +18,13 @@ abstract class AppDatabase : RoomDatabase() {
         fun getDatabase(context: Context): AppDatabase {
             return instance ?: synchronized(this) {
                 Room.databaseBuilder(
-                    context.applicationContext,
-                    AppDatabase::class.java,
-                    "pachangas.db"
-                ).build().also { instance = it }
+                    context = context.applicationContext,
+                    name = "pachangas.db",
+                    factory = { AppDatabase_Impl() },
+                )
+                    .fallbackToDestructiveMigration(dropAllTables = true)
+                    .build()
+                    .also { instance = it }
             }
         }
     }

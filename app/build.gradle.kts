@@ -67,5 +67,5 @@ dependencies {
     implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.8.1")
 
-    ksp("androidx.room3:room3-compiler:3.0.3")
+    ksp(libs.androidx.room3.compiler)
 }
